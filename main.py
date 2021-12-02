@@ -7,7 +7,7 @@ ai = aitextgen()
 
 PORT = os.getenv("PORT", 80)
 DEFAULT_TEMPERATURE = float(os.getenv("DEFAULT_TEMPERATURE", 0.7))
-DEFAULT_MAX_LENGTH = int(os.getenv("DEFAULT_TEMPERATURE", 1024))
+DEFAULT_MAX_LENGTH = int(os.getenv("DEFAULT_MAX_LENGTH", 1024))
 
 def generate(config):
     if type(config) == dict:
@@ -15,7 +15,7 @@ def generate(config):
         temperature = float(config["temperature"]) if "temperature" in config else DEFAULT_TEMPERATURE
         max_length = int(config["length"]) if "length" in config else DEFAULT_MAX_LENGTH
     else:
-        prompt = config
+        prompt = config if config is not None else ""
         temperature = DEFAULT_TEMPERATURE
         max_length = DEFAULT_MAX_LENGTH
 
