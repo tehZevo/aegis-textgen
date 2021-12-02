@@ -1,0 +1,7 @@
+services:
+  textgen:
+    build: .
+    ports:
+      - "8000:80"
+    environment:
+      DEFAULT_MAX_LENGTH: 100
