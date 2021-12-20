@@ -2,8 +2,8 @@ import os
 from aitextgen import aitextgen
 from protopost import ProtoPost
 
-#TODO: support other models such as "minimaxir/hacker-news" or "EleutherAI/gpt-neo-125M" via model parameter
-ai = aitextgen()
+MODEL = os.getenv("MODEL", None)
+ai = aitextgen(model=MODEL)
 
 PORT = os.getenv("PORT", 80)
 DEFAULT_TEMPERATURE = float(os.getenv("DEFAULT_TEMPERATURE", 0.7))
